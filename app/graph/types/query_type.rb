@@ -5,7 +5,7 @@ QueryType = GraphQL::ObjectType.define do
   field :blog do
     type BlogType
     argument :id, !types.ID
-    resolve -> (obj, args, ctx) {
+    resolve -> (_obj, args, _ctx) {
       Blog.find(args[:id])
     }
   end
