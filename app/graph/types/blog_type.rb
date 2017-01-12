@@ -1,12 +1,12 @@
 BlogType = GraphQL::ObjectType.define do
-  name "Blog"
-  description "A Blog"
+  name 'Blog'
+  description 'A Blog'
 
   field :title, types.String
   field :content, types.String
   field :author do
     type AuthorType
-    resolve -> (obj, _args, _ctx) {
+    resolve lambda { |obj, _args, _ctx|
       obj.author
     }
   end

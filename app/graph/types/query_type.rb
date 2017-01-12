@@ -1,11 +1,11 @@
 QueryType = GraphQL::ObjectType.define do
-  name "Query"
-  description "The query root for this schema"
+  name 'Query'
+  description 'The query root for this schema'
 
   field :blog do
     type BlogType
     argument :id, !types.ID
-    resolve -> (_obj, args, _ctx) {
+    resolve lambda { |_obj, args, _ctx|
       Blog.find(args[:id])
     }
   end

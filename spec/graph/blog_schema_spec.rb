@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe BlogSchema do
-  let(:result) {
-    BlogSchema.execute( query_string, context: {}, variables: {})
-              .deep_symbolize_keys
-  }
+  let(:result) do
+    described_class.execute(query_string, context: {}, variables: {})
+                   .deep_symbolize_keys
+  end
 
   before do
     # TODO: add factories
@@ -16,21 +16,21 @@ RSpec.describe BlogSchema do
     )
   end
 
-  describe "a generic blog query with " do
+  describe 'a generic blog query with ' do
     let(:query_string) { %|{ blog(id: 1) { title } }| }
 
-    it "return the blog" do
+    it 'return the blog' do
       expect(result.dig(:data, :blog))
-        .to eq(title: "Building a bot")
+        .to eq(title: 'Building a bot')
     end
   end
 
-  describe "a query with the author" do
+  describe 'a query with the author' do
     let(:query_string) { %|{ blog(id: 1) { title author { name } } }| }
 
-    it "return the blog author as well" do
+    it 'return the blog author as well' do
       expect(result.dig(:data, :blog))
-        .to eq(title: "Building a bot", author: { name: 'Luke Skywalker' })
+        .to eq(title: 'Building a bot', author: { name: 'Luke Skywalker' })
     end
   end
 end

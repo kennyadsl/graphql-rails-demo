@@ -1,0 +1,29 @@
+require: rubocop-rspec
+
+Style/Encoding:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Rails:
+  Enabled: true
+
+Documentation:
+    Enabled: false
+
+# https://github.com/bbatsov/rubocop/issues/3629
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/factories/**/*'
+    - 'tmp/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'spec/spec_helper.rb'
+    - 'test/test_helper.rb'
+  TargetRubyVersion: 2.2

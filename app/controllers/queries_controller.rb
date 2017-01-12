@@ -1,6 +1,5 @@
 class QueriesController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     query_string = params[:query]
