@@ -1,1 +1,1 @@
-BlogSchema = GraphQL::Schema.new(query: QueryType)
+BlogSchema = GraphQL::Schema.define(query: QueryType)
